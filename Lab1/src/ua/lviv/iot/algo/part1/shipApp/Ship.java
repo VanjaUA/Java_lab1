@@ -4,8 +4,8 @@ import lombok.*;
 
 @Setter
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
 public class Ship {
     private static double globalID = 10.4;
@@ -15,14 +15,9 @@ public class Ship {
     private String captain;
     private String currentPort;
     private  double maxSpeed;
+    private  double currentSpeed;
     private  double maxCapacity;
     private double currentLoad;
-
-    /*public Ship()
-    {
-        globalID++;
-        this.id = globalID;
-    }*/
 
     public static Ship getInstance()
     {
@@ -36,13 +31,18 @@ public class Ship {
 
     public void setSpeed(double speed)
     {
-        this.maxSpeed = speed;
+        if (speed <= maxSpeed)
+        {
+            this.currentSpeed = speed;
+        }
     }
 
     public void load(double weight)
     {
         if (currentLoad + weight <= maxCapacity) {
             this.currentLoad = weight;
+        }else{
+            this.currentLoad = maxCapacity;
         }
     }
 
@@ -54,14 +54,13 @@ public class Ship {
     }
 
     public static void main(String[] args) {
-        Ship[] ships = new Ship[4];
-        ships[0] = new Ship();
-        ships[1] = new Ship(10.4d,"Hood","Jack","Dunkerk",20d,300d,10d);
-        ships[2] = Ship.getInstance();
-        ships[3] = Ship.getInstance();
+        Ship[] ships = { new Ship(),
+                new Ship(10.4d,"Hood","Jack","Dunkerk",20d,10d,300d,10d),
+                Ship.getInstance(),
+                Ship.getInstance()};
 
-        for (int i = 0; i < ships.length; i++) {
-            System.out.println(ships[i].hashCode());
+        for (Ship ship : ships) {
+            System.out.println(ship);
         }
     }
 }
