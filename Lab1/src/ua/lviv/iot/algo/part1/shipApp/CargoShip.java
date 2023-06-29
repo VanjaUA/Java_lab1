@@ -10,7 +10,7 @@ import lombok.*;
 public class CargoShip extends Ship {
 
     private double massOfLoadInTons;
-    private String currentLoad;
+    private String loadType;
 
     public int getTotalPeopleCount() {
         return 0;
