@@ -10,6 +10,7 @@ import lombok.*;
 
 public class CruiseShip extends Ship {
 
+
     private int passangersCount;
     private int crewCount;
 
