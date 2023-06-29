@@ -7,60 +7,36 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Ship {
-    private static double globalID = 10.4;
-    private double id;
-    private static Ship instance = new Ship();
-    private String name;
-    private String captain;
-    private String currentPort;
-    private  double maxSpeed;
-    private  double currentSpeed;
-    private  double maxCapacity;
-    private double currentLoad;
+public abstract class Ship {
+    protected String name;
+    protected String captain;
+    protected String currentPort;
+    protected double maxSpeed;
+    protected double currentSpeed;
+    protected double maxCapacity;
+    protected double currentLoad;
 
-    public static Ship getInstance()
-    {
-        return instance;
-    }
+    public abstract int getTotalPeopleCount();
 
-    public void dock(String port)
-    {
+    public abstract double calculateLoadTime();
+
+    public void dock(String port) {
         this.currentPort = port;
     }
-
-    public void setSpeed(double speed)
-    {
-        if (speed <= maxSpeed)
-        {
-            this.currentSpeed = speed;
+    public void load(double weight){
+        currentLoad += weight;
+        if (currentLoad > maxCapacity){
+            currentLoad = maxCapacity;
         }
     }
-
-    public void load(double weight)
-    {
-        if (currentLoad + weight <= maxCapacity) {
-            this.currentLoad = weight;
-        }else{
-            this.currentLoad = maxCapacity;
-        }
+    public void unload(){
+        currentLoad = 0;
     }
-
-    public void unload(double weight)
-    {
-        if (weight != 0) {
-            this.currentLoad = 0;
+    public void setSpeed(double speed){
+        if (speed > maxSpeed){
+            return;
         }
-    }
-
-    public static void main(String[] args) {
-        Ship[] ships = { new Ship(),
-                new Ship(10.4d,"Hood","Jack","Dunkerk",20d,10d,300d,10d),
-                Ship.getInstance(),
-                Ship.getInstance()};
-
-        for (Ship ship : ships) {
-            System.out.println(ship);
-        }
+        currentSpeed = speed;
     }
 }
+
