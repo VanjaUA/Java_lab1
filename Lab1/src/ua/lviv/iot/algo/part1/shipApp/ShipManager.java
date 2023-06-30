@@ -22,5 +22,6 @@ public class ShipManager {
         for (Ship ship : ships) {
             System.out.println(ship);
         }
+
     }
 }
