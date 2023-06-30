@@ -23,5 +23,9 @@ public class ShipManager {
             System.out.println(ship);
         }
 
+        String filePath = "ships.csv";
+        ShipWriter writer = new ShipWriter(filePath);
+        writer.writeToFile(ships);
+
     }
 }

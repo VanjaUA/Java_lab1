@@ -38,5 +38,14 @@ public abstract class Ship {
         }
         currentSpeed = speed;
     }
+
+    public String getHeaders() {
+        return "name,captain,currentPort,maxSpeed,currentSpeed,maxCapacity,currentLoad";
+    }
+
+    public String toCSV() {
+        return name + "," + captain + "," + currentPort + "," + maxSpeed + "," + currentSpeed + "," + maxCapacity + "," + currentLoad;
+    }
+
 }
 

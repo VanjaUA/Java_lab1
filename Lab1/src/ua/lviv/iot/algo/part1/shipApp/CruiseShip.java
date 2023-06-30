@@ -21,4 +21,14 @@ public class CruiseShip extends Ship {
     public double calculateLoadTime() {
         return 5*passangersCount;
     }
+
+    @Override
+    public String getHeaders() {
+        return super.getHeaders() + ",passangersCount" + ",crewCount";
+    }
+
+    @Override
+    public String toCSV() {
+        return super.toCSV() + "," + passangersCount + "," + crewCount;
+    }
 }
