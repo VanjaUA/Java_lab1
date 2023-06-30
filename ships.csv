@@ -1,0 +1,8 @@
+name,captain,currentPort,maxSpeed,currentSpeed,maxCapacity,currentLoad,massOfLoadInTons,loadType
+null,null,null,0.0,0.0,0.0,0.0,23.0,Flour
+name,captain,currentPort,maxSpeed,currentSpeed,maxCapacity,currentLoad,massOfLoadInTons,loadType
+null,null,null,0.0,0.0,0.0,0.0,97.0,Guns
+name,captain,currentPort,maxSpeed,currentSpeed,maxCapacity,currentLoad,passangersCount,crewCount
+null,null,null,0.0,0.0,0.0,0.0,230,25
+name,captain,currentPort,maxSpeed,currentSpeed,maxCapacity,currentLoad,passangersCount,crewCount
+null,null,null,0.0,0.0,0.0,0.0,500,50
